@@ -4,7 +4,7 @@
 ------------        Script made for GitHub         ------------            
 -- Feel free to use it on your own server/modify as you wish --
 --- For any development partenership contact me on discord  ---
-------                 Discord : --Ax-#0018              ------
+------                 or DM me VIA cfx.re               ------
 ---------------------------------------------------------------
 --]]
 
