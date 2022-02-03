@@ -3,7 +3,10 @@ A simple Gardener Job
 
 [PREVIEW]  https://youtu.be/Knstre_wfBQ
 
-(SOON vrp_GardenerAX optimizated to 0.01 resmon)
+Resmon (client-side): 
+0.00 Outside of range
+0.05 At 10 meters distance (GTA Units)
+0.07-0.10 While working at the job
 
 In order for the script to work add "vrp_GardenerAX" in your server.cfg ( without the "")
 
