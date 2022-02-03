@@ -1,6 +1,8 @@
 # vrp_GardenerAX
 A simple Gardener Job
 
+[PREVIEW]  https://youtu.be/Knstre_wfBQ
+
 (SOON vrp_GardenerAX optimizated to 0.01 resmon)
 
 In order for the script to work add "vrp_GardenerAX" in your server.cfg ( without the "")
