@@ -4,7 +4,7 @@
 ------------        Script made for GitHub         ------------            
 -- Feel free to use it on your own server/modify as you wish --
 --- For any development partenership contact me on discord  ---
-------                 or DM me VIA cfx.re               ------
+------                 Discord : --Ax-#0018              ------
 ---------------------------------------------------------------
 --]]
 
@@ -80,13 +80,20 @@ locations = {
 
 
 Citizen.CreateThread(function()
+sleep = 0 --optimization
 while true do
-    Citizen.Wait(0) -- prevent crashing
+    Citizen.Wait(sleep) -- prevent crashing
     local pos = GetEntityCoords(GetPlayerPed(-1))
     local dist = math.floor(GetDistanceBetweenCoords(850.63983154297,-588.68255615234,58.151695251465, GetEntityCoords(GetPlayerPed(-1))))
     if dist < 20 then
+        sleep = 0
         DrawMarker(20, 850.63983154297,-588.68255615234,58.151695251465, 0, 0, 0, 0, 0, 0, 0.6001,0.6001,0.6001, 255, 152, 80, 100, 0, 0, 0, 1, 0, 0, 0)
         DrawText3D(850.63983154297,-588.68255615234,58.151695251465+1, "JOB: Gardener", 1) -- Job text where you start the job
+    end
+    if dist > 20 and dist < 60 then
+        sleep = 2000 -- We check every second if he gets closer
+    elseif dist > 60 then
+        sleep = 5000 -- we check every 5 seconds if he gets closer
     end
     if job == true then
         for i,v in pairs(locations) do
@@ -122,8 +129,9 @@ while true do
             end
         end
     end
-    if dist <= 1 then
+    --[[if dist <= 1 and sleep ~= 1 then
         DrawText3D(850.63983154297,-588.68255615234,58.151695251465+0.6, "Press [E] to start the job\n Press [Z] to receive the reward",1.2)
+        sleep = 1
         if IsControlJustPressed(1,51) then
             if job == false then
                 vRP.notify({"~o~Work at the 5 locations"})
@@ -148,8 +156,48 @@ while true do
                 vRP.notify({"~r~You haven't finished the tour"}) -- In case he haven`t finished yet
             end
         end
-    end
+    else
+        sleep = 1000
+    end]]
 end
+end)
+
+Citizen.CreateThread(function()
+ticks = 0
+    while true do
+        Citizen.Wait(ticks)
+        local dist1 = math.floor(GetDistanceBetweenCoords(850.63983154297,-588.68255615234,58.151695251465, GetEntityCoords(GetPlayerPed(-1))))
+        if dist1 <= 3 then
+            ticks = 0
+            DrawText3D(850.63983154297,-588.68255615234,58.151695251465+0.6, "Press [E] to start the job\n Press [Z] to receive the reward",1.2)
+            if IsControlJustPressed(1,51) then
+                if job == false then
+                    vRP.notify({"~o~Work at the 5 locations"})
+                    job = true
+                elseif job == true then
+                    vRP.notify({"~o~Work at the 5 locations"})
+                end
+            elseif IsControlJustPressed(1,20) then
+                if ready == true then
+                    if spots == 5 then
+                        TriggerServerEvent("ax_gradinar") -- we give the reward
+                        spots = 0
+                        job = false
+                        ready = false
+                        table.insert(locations,{846.06268310547,-592.23034667969,58.150760650635})
+                        table.insert(locations,{852.16009521484,-596.18328857422,58.082748413086})
+                        table.insert(locations,{857.28491210938,-606.15148925781,58.03689956665})
+                        table.insert(locations,{854.03509521484,-603.64196777344,58.14673614502})
+                        table.insert(locations,{847.52850341797,-598.40765380859,58.039428710938})
+                    end
+                else
+                    vRP.notify({"~r~You haven't finished the tour"}) -- In case he haven`t finished yet
+                end
+            end
+        else
+            ticks = 1000
+        end
+    end
 end)
 
 
