@@ -129,36 +129,6 @@ while true do
             end
         end
     end
-    --[[if dist <= 1 and sleep ~= 1 then
-        DrawText3D(850.63983154297,-588.68255615234,58.151695251465+0.6, "Press [E] to start the job\n Press [Z] to receive the reward",1.2)
-        sleep = 1
-        if IsControlJustPressed(1,51) then
-            if job == false then
-                vRP.notify({"~o~Work at the 5 locations"})
-                job = true
-            elseif job == true then
-                vRP.notify({"~o~Work at the 5 locations"})
-            end
-        elseif IsControlJustPressed(1,20) then
-            if ready == true then
-                if spots == 5 then
-                    TriggerServerEvent("ax_gradinar") -- we give the reward
-                    spots = 0
-                    job = false
-                    ready = false
-                    table.insert(locations,{846.06268310547,-592.23034667969,58.150760650635})
-                    table.insert(locations,{852.16009521484,-596.18328857422,58.082748413086})
-                    table.insert(locations,{857.28491210938,-606.15148925781,58.03689956665})
-                    table.insert(locations,{854.03509521484,-603.64196777344,58.14673614502})
-                    table.insert(locations,{847.52850341797,-598.40765380859,58.039428710938})
-                end
-            else
-                vRP.notify({"~r~You haven't finished the tour"}) -- In case he haven`t finished yet
-            end
-        end
-    else
-        sleep = 1000
-    end]]
 end
 end)
 
