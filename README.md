@@ -1,6 +1,9 @@
 # vrp_GardenerAX
 A simple Gardener Job
 
+## Visitor Count
+  <img src="https://profile-counter.glitch.me/vrp_GardenerAX/count.svg" /> (26/5)
+
 [PREVIEW]  https://youtu.be/Knstre_wfBQ
 
 Resmon (client-side):
