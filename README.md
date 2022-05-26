@@ -2,7 +2,7 @@
 A simple Gardener Job
 
 ## Visitor Count
-  <img src="https://profile-counter.glitch.me/vrp_GardenerAX/count.svg" /> (26/5)
+  <img src="https://profile-counter.glitch.me/vrp_GardenerAX/count.svg" /> (added 26/5/2022)
 
 [PREVIEW]  https://youtu.be/Knstre_wfBQ
 
